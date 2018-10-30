@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10/10/2018, 10:42:18 AM
+    Author     : Luis Alvarez
+*/
+
+@font-face{
+    font-family: "Courgette-Regular";
+    src:url("../fonts/Courgette-Regular.ttf");
+}
+
+#titulo{
+    font-family: "Courgette-Regular";
+    font-size: 25px;
+    text-align: center;
+    color:red;
+    margin: 0 auto;
+    border: solid 2px #000;
+    top: 20px;
+    width: 70%;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#datos{
+    position: relative;
+    margin-left: 20px;
+    border: solid 5px #000;
+    width: 40%;
+    margin-top: 30px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    float: left;
+}
+label{
+  font-size: 14px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+#foto{
+    position: relative;
+    width: 40%;
+    border: solid red 2px;
+    float: left;
+    top: 30px;
+    left: 30px;
+    text-align: center;
+}
+
+#estudios{
+    position: relative;
+    border: dashed 3px blueviolet;
+    float: left;
+    width: 90%;
+    margin: 0 auto;
+    top: 50px;
+}
+
+
+
