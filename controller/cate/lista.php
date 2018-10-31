@@ -1,26 +1,32 @@
 <?php
-if($_POST){
+
+if ($_POST) {
     header('Access-Control-Allow-Origin: *');
-    $res = array();   
+    $res = array();
+
     $json = file_get_contents("php://input");
     $json = json_decode($json);
-    if($json->token == "QWER@QWE#$%@#Q@#EW..?"){
+    if ($json->token == "QWER@QWE#$%@#Q@#EW..?") {
         require '../../BD/ConectarBD.php';
-        $sql = "insert into usuario(nombre,apellido,cedula,correo,direccion,tele,clave) values(?,?,?,?,?,?,sha1(?));";
+        $sql = "select id cod, nombre nom, detalles det, foto from cate order by nombre;";
         $bd = new ConectarBD();
         $conn = $bd->getConn();
         $stmp = $conn->prepare($sql);
-        $stmp->bind_param("sssssss",$json->nombre,$json->apellido,$json->cedula,$json->correo,$json->dir,$json->tele,$json->clave);
         if($stmp->execute()){
             $res["success"]="ok";
+            $res["result"]=array();
+            $data = $stmp->get_result();
+            while($fila = $data->fetch_assoc()){
+                $res["result"][] = $fila;
+            }
         }else{
             $res["success"]="no";
         }
-    }else{
-        $res["success"]="error de acceso";
+    } else {
+        $res["success"] = "error de acceso";
     }
     $res["info"]="Ver0.0.1";
     echo json_encode($res);
-}else{
+} else {
     header("location: ../../");
 }
