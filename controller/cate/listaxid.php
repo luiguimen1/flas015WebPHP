@@ -1,5 +1,4 @@
 <?php
-sleep(3);
 if ($_POST) {
     header('Access-Control-Allow-Origin: *');
     $res = array();
